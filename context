@@ -1,0 +1,138 @@
+Système de Gestion de Concession
+Automobile
+1. Contexte du Projet
+Développer une application web de gestion pour une concession automobile
+permettant la gestion complète du stock de véhicules avec un système
+d'authentification sécurisé.
+Les concessions automobiles ont besoin d'un outil moderne et efficace pour gérer
+leur inventaire de véhicules, permettant aux employés autorisés de consulter,
+ajouter, modifier et supprimer des véhicules en toute sécurité.
+Périmètre : Application web front-end développée avec Angular et NgRx pour la
+gestion d'état, communiquant avec des APIs externes pour l'authentification et la
+gestion des données.
+2. Stack Technique
+Front-End
+● Framework : Angular
+● State Management : NgRx (Store, Effects, Actions, Reducers)
+● Styling : CSS ou framework UI (Angular Material, Tailwind)
+Back-End & APIs
+● Authentification : DummyJSON API (https://dummyjson.com/docs/auth)
+● Gestion des données : JSON Server (API REST locale)
+3. Architecture de Données
+Schéma Voiture = { “id”: 1, “marque_id”:23, “modele”: “3008”, “prix”: 280500,
+“carburant”: “diesel”,”image”:”https://example/img.png”: “disponibilite”: true,
+“dateDeMiseEnVente”: “21/01/2023” }
+Schéma marque= { “id”: 23, “titre”: “Peugeot” }
+4. Fonctionnalités Requises
+4.1 Authentification
+● Page de login avec formulaire (username/password)
+● Utilisation de l'API DummyJSON pour l'authentification
+● Stockage sécurisé du token JWT
+● Guard pour protéger les routes
+● Déconnexion
+Routes protégées : Ajouter, Modifier, Supprimer
+Routes publiques : Liste des voitures, Détails d'une voiture
+4.2 Layout Principal
+L'application doit utiliser un layout à 2 colonnes pour les pages liées aux voitures :
+Structure du Layout
+● Zone principale: Contenu voitures (liste, ajout, modification, détails)
+● Zone sidebar: Liste des marques
+4.3 Gestion des Voitures
+Liste des voitures
+L'utilisateur doit pouvoir basculer entre deux modes d'affichage :
+● Vue Tableau : Affichage des voitures sous forme de tableau avec colonnes
+(Marque, Modèle, Prix, Image, Carburant, Disponibilité, Actions(edit,delete))
+● Vue Grid (Cards) : Affichage des voitures sous forme de Cards
+● Filtrage par disponibilité et recherche par marque
+Fiche détaillée
+● Page dédiée pour chaque voiture
+● Affichage de toutes les informations
+● Boutons d'action (Modifier, Supprimer) si authentifié
+Ajout d'une voiture (Authentification requise)
+● Formulaire avec validation des données
+● Tous les champs obligatoires
+● Redirection vers la liste après succès
+Modification d'une voiture (Authentification requise)
+● Pré-remplissage du formulaire avec données
+● Validation des modifications
+Suppression d'une voiture (Authentification requise)
+● Confirmation avant suppression
+● Suppression définitive de la base de données
+● Notification de succès/erreur
+5. Interfaces Utilisateur
+Pages à créer
+1. Page Login
+○ Formulaire centré
+○ Champs : username, password
+○ Bouton de connexion
+○ Messages d'erreur
+2. Page Liste des Voitures
+○ Header avec titre et bouton "Ajouter" (si authentifié)
+○ Tableau/Grid des voitures
+○ Actions: Voir, Modifier (protégé), Supprimer (protégé)
+3. Page Fiche Voiture
+○ Affichage détaillé
+○ Boutons : Retour, Modifier (protégé), Supprimer (protégé)
+○ Redirection vers la liste après succès(modifer/supprimer)
+4. Page Ajout/Modification
+○ Formulaire réactif avec validation des données
+○ Champs : marque, modèle, prix, carburant, Image, disponibilité, date
+de mise en vente
+○ Boutons : Enregistrer, Annuler
+Composants réutilisables
+● Header/Navigation avec état d'authentification
+● Card voiture
+● Loader/Spinner
+● Messages de notification (toast)
+6. User Stories
+Authentification
+US-01 : En tant qu'employé, je veux me connecter avec mes identifiants pour
+accéder au système de gestion.
+● Login avec DummyJSON (username: emilys, password: emilyspass)
+● Stockage du token
+● Redirection après connexion
+US-02 : En tant qu'employé authentifié, je veux me déconnecter pour sécuriser
+mon accès.
+● Bouton déconnexion visible
+● Suppression du token
+● Redirection vers login
+US-03 : En tant que système, je veux protéger les routes sensibles pour que seuls
+les utilisateurs authentifiés puissent modifier les données.
+● AuthGuard sur les routes /ajouter et /modifier
+● Redirection automatique si non authentifié
+Consultation & État
+US-04 : En tant que visiteur, je veux voir la liste de toutes les voitures pour
+consulter la disponibilité.
+● Affichage en tableau/Grid
+● Marque, modèle, prix, carburant, disponibilité
+● Chargement depuis JSON Server
+US-05 : En tant que visiteur, je veux voir les détails d'une voiture pour obtenir
+toutes les informations.
+● Page dédiée avec toutes les infos
+● Bouton retour à la liste
+● Boutons modifier/supprimer si authentifié
+Gestion CRUD
+US-06 : En tant qu'employé authentifié, je veux ajouter une voiture.
+● Formulaire avec validation des données
+● Enregistrement via JSON Server
+● Notification de succès
+US-07 : En tant qu'employé authentifié, je veux modifier une voiture existante pour
+corriger ou mettre à jour les informations.
+● Formulaire pré-rempli
+● Validation des champs
+● Mise à jour via JSON Server
+● Redirection après succès
+US-08 : En tant qu'employé authentifié, je veux supprimer une voiture.
+● Confirmation avant suppression
+● Suppression définitive
+● Notification de succès
+US-09 : En tant qu'utilisateur, je veux recevoir des notifications claires pour
+comprendre le résultat de mes actions.
+● Messages de succès/erreur
+● Indicateurs de chargement(loading)
+7. Tests
+● Tests unitaires avec Jasmine / Karma.
+● Tests End-to-End avec Cypress + Cucumber.
+8. Dockerisation
+Conteneurisation de l’application Angular avec Docker.
+Utiliser GitHub Actions pour créer un Workflow CI/CD pour votre Application.

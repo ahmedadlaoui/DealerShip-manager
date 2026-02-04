@@ -1,0 +1,11 @@
+<aside class="brands-sidebar">
+  <h3 class="sidebar-title">Brands</h3>
+  <ul class="brands-list">
+    <li *ngFor="let brand of brands">
+      <a href="#" class="brand-link" [class.active]="selectedBrand === brand.value"
+        (click)="selectBrand(brand.value, $event)">
+        {{brand.label}}
+      </a>
+    </li>
+  </ul>
+</aside>

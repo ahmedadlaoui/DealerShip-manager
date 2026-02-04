@@ -1,0 +1,37 @@
+<!-- Search & Controls -->
+<div class="controls-bar">
+    <div class="filters-wrapper">
+        <div class="filter-group">
+            <select class="filter-select" [value]="selectedFuelType" (change)="onFuelTypeChange($event)">
+                <option value="all">All Fuel Types</option>
+                <option *ngFor="let fuel of fuelTypes" [value]="fuel" [hidden]="fuel === 'all'">{{fuel}}</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <select class="filter-select" [value]="selectedYear" (change)="onYearChange($event)">
+                <option value="all">All Years</option>
+                <option *ngFor="let year of years" [value]="year">{{year}}</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <select class="filter-select" [value]="selectedPriceRange" (change)="onPriceRangeChange($event)">
+                <option *ngFor="let range of priceRanges; let i = index" [value]="i">{{range.label}}</option>
+            </select>
+        </div>
+
+        <button class="reset-btn" (click)="resetFilters()">
+            <span>↺</span> Reset
+        </button>
+    </div>
+
+    <div class="view-toggles">
+        <button class="toggle-btn" [class.active]="isGridView" (click)="setView('grid')" aria-label="Grid view">
+            <span class="icon-grid">▦</span>
+        </button>
+        <button class="toggle-btn" [class.active]="!isGridView" (click)="setView('list')" aria-label="List view">
+            <span class="icon-list">☰</span>
+        </button>
+    </div>
+</div>

@@ -1,0 +1,546 @@
+/* Page Wrapper */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.site-header {
+    border-bottom: 1px solid var(--border-dim);
+    background: var(--bg-app);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.logo-img {
+    height: 36px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--text-base);
+    letter-spacing: -0.01em;
+}
+
+.header-nav {
+    display: flex;
+    gap: var(--space-8);
+}
+
+.nav-link {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+    padding: var(--space-1) 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--text-primary);
+}
+
+/* Auth Section */
+.header-auth {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.auth-btn {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.auth-btn.login-btn {
+    background: #A4161A;
+    color: white;
+    border: none;
+}
+
+.auth-btn.login-btn:hover {
+    background: rgb(125, 16, 12);
+}
+
+.auth-btn.logout-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-dim);
+}
+
+.auth-btn.logout-btn:hover {
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.user-name {
+    font-size: var(--text-sm);
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+/* ============================================
+   MAIN CONTENT
+   ============================================ */
+.main-content {
+    flex: 1;
+    padding: var(--space-12) 0 var(--space-16);
+}
+
+/* Hero Section */
+.hero-section {
+    margin-bottom: var(--space-10);
+}
+
+.page-title {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+}
+
+.page-subtitle {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Controls Bar */
+
+
+/* ============================================
+   CONTENT LAYOUT WITH SIDEBAR
+   ============================================ */
+.content-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-10);
+}
+
+
+/* ============================================
+   VEHICLE CARDS GRID
+   ============================================ */
+.vehicles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-10);
+    row-gap: var(--space-16);
+}
+
+.vehicle-card {
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-4px);
+}
+
+/* List View Overrides */
+.vehicles-grid.list-view {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+}
+
+.vehicles-grid.list-view .vehicle-card {
+    flex-direction: row;
+    padding: var(--space-6);
+    background: #ffffff;
+    /* border: 1px solid var(--border-dim); */
+    border-radius: 20px;
+    align-items: center;
+    gap: var(--space-10);
+}
+
+.card-description {
+    display: none;
+    /* Fallback for very old browsers */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-4);
+}
+
+.vehicles-grid.list-view .card-image {
+    width: 320px;
+    height: 200px;
+    margin-bottom: 0;
+}
+
+.vehicles-grid.list-view .card-body {
+    padding: var(--space-2) 0;
+    gap: 0px;
+}
+
+.vehicles-grid.list-view .card-footer {
+    margin-top: var(--space-6);
+}
+
+.card-image {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-5);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-image img {
+    width: 110%;
+    height: 110%;
+    object-fit: contain;
+    transform: scale(1.15);
+}
+
+.card-body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+}
+
+.card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.card-title {
+    font-size: var(--text-base);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    line-height: 1.3;
+}
+
+.card-meta {
+    font-size: var(--text-xs);
+    color: var(--text-tertiary);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.card-price {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.btn-details {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    padding: var(--space-2) var(--space-4);
+    background: white;
+    border: 1px solid var(--border-dim);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.btn-details:hover {
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   PAGINATION
+   ============================================ */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    margin-top: var(--space-16);
+    padding-top: var(--space-10);
+    border-top: 1px solid var(--border-dim);
+}
+
+.page-numbers {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+.page-btn {
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: transparent;
+    border: 1px solid var(--border-dim);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+    border-color: var(--text-primary);
+    color: var(--text-primary);
+}
+
+.page-btn.active {
+    background: var(--accent);
+    color: var(--bg-app);
+    border-color: var(--accent);
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-btn.prev,
+.page-btn.next {
+    font-size: var(--text-lg);
+}
+
+.page-ellipsis {
+    padding: 0 var(--space-2);
+    color: var(--text-tertiary);
+}
+
+/* Empty State */
+.empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-16);
+    color: var(--text-secondary);
+    font-size: var(--text-base);
+    background: var(--bg-muted);
+    border-radius: 16px;
+    text-align: center;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+    background: var(--bg-dark);
+    padding: var(--space-16) 0 var(--space-6);
+    margin-top: auto;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-12);
+}
+
+.footer-main {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr;
+    gap: var(--space-16);
+}
+
+.footer-brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+.footer-brand-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: -0.01em;
+}
+
+.footer-desc {
+    font-size: var(--text-sm);
+    color: var(--text-light-muted);
+    line-height: 1.6;
+    max-width: 280px;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+}
+
+.footer-contact p {
+    font-size: var(--text-sm);
+    color: var(--text-light-muted);
+}
+
+.footer-contact strong {
+    margin-right: var(--space-2);
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.footer-col h4 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: var(--space-2);
+}
+
+.footer-col a {
+    font-size: var(--text-sm);
+    color: var(--text-light-muted);
+    transition: color 0.15s ease;
+}
+
+.footer-col a:hover {
+    color: var(--text-light);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--space-8);
+    border-top: 1px solid #262626;
+}
+
+.footer-copy {
+    font-size: var(--text-sm);
+    color: var(--text-light-muted);
+}
+
+.footer-legal {
+    display: flex;
+    gap: var(--space-6);
+}
+
+.footer-legal a {
+    font-size: var(--text-sm);
+    color: var(--text-light-muted);
+    transition: color 0.15s ease;
+}
+
+.footer-legal a:hover {
+    color: var(--text-light);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 960px) {
+    .content-layout {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .brands-sidebar {
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-dim);
+        padding-right: 0;
+        padding-bottom: var(--space-4);
+        margin-bottom: var(--space-2);
+    }
+
+    .brands-list {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: var(--space-2);
+        white-space: nowrap;
+    }
+
+    .vehicles-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: var(--space-6);
+        row-gap: var(--space-12);
+    }
+}
+
+@media (max-width: 600px) {
+    .vehicles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicles-grid.list-view .vehicle-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+
+    .vehicles-grid.list-view .card-image {
+        width: 100%;
+        margin-bottom: var(--space-4);
+    }
+
+    .footer-columns {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .card-header {
+        flex-direction: column;
+        gap: var(--space-1);
+    }
+}

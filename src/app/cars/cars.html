@@ -1,0 +1,153 @@
+<div class="page-wrapper">
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo">
+        <img src="upscalemedia-transformed (3).png" alt="AutoTrack" class="logo-img" />
+      </a>
+
+      <nav class="header-nav">
+        <a class="nav-link active">Inventory</a>
+        <a class="nav-link">About</a>
+        <a class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Auth Section -->
+      <div class="header-auth">
+        <!-- Show when NOT logged in -->
+        <button *ngIf="!currentUser" class="auth-btn login-btn" (click)="goToLogin()">
+          Sign In
+        </button>
+
+        <!-- Show when logged in -->
+        <div *ngIf="currentUser" class="user-menu">
+          <span class="user-name">{{ currentUser.firstName }}</span>
+          <button class="auth-btn logout-btn" (click)="logout()">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Hero Title -->
+      <!-- <section class="hero-section">
+        <h1 class="page-title">Find Your Next Vehicle</h1>
+        <p class="page-subtitle">Browse our curated collection of premium automobiles</p>
+      </section> -->
+
+      <!-- Content Layout with Sidebar -->
+      <div class="content-layout">
+        <!-- Brands Sidebar -->
+
+        <app-brands-sidebar (brandSelected)="onBrandSelect($event)"></app-brands-sidebar>
+        <!-- Main Content Area (Grid + Pagination) -->
+        <div class="vehicles-content">
+
+          <app-search-controls (viewChanged)="isGridView = $event" (filtersChanged)="onFiltersChange($event)">
+
+          </app-search-controls>
+
+          <section class="vehicles-grid" [class.list-view]="!isGridView">
+            <!-- Car Cards -->
+            <article *ngFor="let car of cars" class="vehicle-card" (click)="viewCarDetails(car.id)">
+              <div class="card-image">
+                <img [src]="car.image" [alt]="car.model" />
+              </div>
+              <div class="card-body">
+                <div class="card-header">
+                  <h3 class="card-title">{{car.model}}</h3>
+                  <span class="card-meta"> {{car.brand}} · {{car.year}}</span>
+                </div>
+                <p class="card-description">{{car.description}}</p>
+                <div class="card-footer">
+                  <span class="card-price">${{car.price | number}}</span>
+                  <button class="btn-details" (click)="viewCarDetails(car.id); $event.stopPropagation()">More
+                    Details</button>
+                </div>
+              </div>
+            </article>
+          </section>
+
+          <!-- Empty State -->
+          <div *ngIf="cars.length === 0" class="empty-state">
+            <p>No vehicles found matching your filters.</p>
+          </div>
+
+          <!-- Pagination -->
+          <nav class="pagination" *ngIf="totalPages > 1">
+            <button class="page-btn prev" [disabled]="page === 1" (click)="prevPage()">
+              <span>←</span>
+            </button>
+            <div class="page-numbers">
+              <button *ngFor="let p of getVisiblePages()" class="page-btn" [class.active]="p === page"
+                (click)="goToPage(p)">
+                {{p}}
+              </button>
+            </div>
+            <button class="page-btn next" [disabled]="page === totalPages" (click)="nextPage()">
+              <span>→</span>
+            </button>
+          </nav>
+        </div> <!-- End vehicles-content -->
+      </div>
+    </div> <!-- End container -->
+  </main>
+
+  <!-- Footer -->
+  <!-- <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-main">
+
+        <div class="footer-brand-col">
+          <h3 class="footer-brand-title">AutoTrack</h3>
+          <p class="footer-desc">Votre partenaire de confiance pour l'achat de véhicules premium depuis 2010.</p>
+          <div class="footer-contact">
+            <p>123 Avenue des Champs-Élysées, Paris</p>
+            <p>+33 1 23 45 67 89</p>
+            <p>contact&#64;autotrack.fr</p>
+          </div>
+        </div>
+
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a href="#">Accueil</a>
+            <a href="#">Inventaire</a>
+            <a href="#">Vendre ma voiture</a>
+            <a href="#">Financement</a>
+          </div>
+          <div class="footer-col">
+            <h4>Services</h4>
+            <a href="#">Essai routier</a>
+            <a href="#">Garantie étendue</a>
+            <a href="#">Entretien</a>
+            <a href="#">Assurance</a>
+          </div>
+          <div class="footer-col">
+            <h4>À propos</h4>
+            <a href="#">Notre histoire</a>
+            <a href="#">Équipe</a>
+            <a href="#">Témoignages</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 AutoTrack. Tous droits réservés.</p>
+        <div class="footer-legal">
+          <a href="#">Politique de confidentialité</a>
+          <a href="#">Conditions d'utilisation</a>
+          <a href="#">Mentions légales</a>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+</div>

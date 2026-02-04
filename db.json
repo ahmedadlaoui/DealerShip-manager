@@ -1,0 +1,134 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "admin",
+            "password": "admin123",
+            "email": "admin@autotrack.com",
+            "firstName": "Admin",
+            "lastName": "User",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "username": "employee",
+            "password": "employee123",
+            "email": "employee@autotrack.com",
+            "firstName": "John",
+            "lastName": "Doe",
+            "role": "employee"
+        }
+    ],
+    "cars": [
+        {
+            "id": 1,
+            "brand": "BMW",
+            "model": "X5 xDrive40i",
+            "year": 2024,
+            "fuelType": "Essence",
+            "price": 68500,
+            "description": "Experience luxury and performance with the BMW X5. Featuring advanced technology, spacious interior, and dynamic driving capabilities suitable for any terrain.",
+            "image": "cars/bmw-x5.png"
+        },
+        {
+            "id": 2,
+            "brand": "Mercedes-Benz",
+            "model": "GLE 450",
+            "year": 2023,
+            "fuelType": "Diesel",
+            "price": 72900,
+            "description": "The Mercedes-Benz GLE combines elegant design with powerful performance. Enjoy uniform comfort, cutting-edge safety features, and a premium driving experience.",
+            "image": "cars/mercedes-gle.png"
+        },
+        {
+            "id": 3,
+            "brand": "Audi",
+            "model": "Q8 Premium Plus",
+            "year": 2024,
+            "fuelType": "Essence",
+            "price": 79200,
+            "description": "Sporty, elegant, and versatile. The Audi Q8 offers a coupe-like silhouette with the spaciousness of an SUV, equipped with the latest infotainment systems.",
+            "image": "cars/audi-q8.png"
+        },
+        {
+            "id": 4,
+            "brand": "Porsche",
+            "model": "Cayenne",
+            "year": 2023,
+            "fuelType": "Essence",
+            "price": 89500,
+            "description": "A true sports car for 5. The Porsche Cayenne delivers impressive power, precise handling, and luxurious comfort for the ultimate driving machine.",
+            "image": "cars/porsche-cayenne.png"
+        },
+        {
+            "id": 5,
+            "brand": "Range Rover",
+            "model": "Sport",
+            "year": 2024,
+            "fuelType": "Diesel",
+            "price": 94000,
+            "description": "Unmatched off-road capability meets refined luxury. The Range Rover Sport is designed to command attention while providing exceptional comfort.",
+            "image": "cars/range-rover.png"
+        },
+        {
+            "id": 6,
+            "brand": "Tesla",
+            "model": "Model X Plaid",
+            "year": 2024,
+            "fuelType": "Électrique",
+            "price": 108000,
+            "description": "The future of driving. Tesla Model X features Falcon Wing doors, industry-leading range, and Autopilot technology for a revolutionary electric experience.",
+            "image": "cars/tesla-model-xx.png"
+        },
+        {
+            "id": 7,
+            "brand": "Lexus",
+            "model": "RX 350",
+            "year": 2024,
+            "fuelType": "Hybride",
+            "price": 52600,
+            "description": "Sophisticated design and hybrid efficiency. The Lexus RX offers a quiet cabin, smooth ride, and legendary reliability for the discerning driver.",
+            "image": "cars/lexus-rx.png"
+        },
+        {
+            "id": 8,
+            "brand": "Jaguar",
+            "model": "F-Pace SVR",
+            "year": 2023,
+            "fuelType": "Essence",
+            "price": 83000,
+            "description": "Performance SUV with Jaguar DNA. The F-Pace combines sporty handling with practical everyday usability and stunning British design.",
+            "image": "cars/jaguar-fpace.png"
+        },
+        {
+            "id": 9,
+            "brand": "Volvo",
+            "model": "XC90 Recharge",
+            "year": 2024,
+            "fuelType": "Hybride",
+            "price": 74800,
+            "description": "Safety first, luxury always. The Volvo XC90 features Scandinavian design, room for seven, and advanced safety technologies for your family.",
+            "image": "cars/volvo-xc90.png"
+        },
+        {
+            "id": 10,
+            "brand": "Mercedes-AMG",
+            "model": "GT",
+            "year": 2024,
+            "fuelType": "Essence",
+            "price": 125000,
+            "description": "Pure performance meets timeless elegance. The Mercedes-AMG GT delivers breathtaking acceleration, precision handling, and head-turning design.",
+            "image": "cars/mercedes-amg-gt.png"
+        },
+        {
+            "id": 11,
+            "brand": "Audi",
+            "model": "e-tron GT",
+            "year": 2024,
+            "fuelType": "Électrique",
+            "price": 104900,
+            "description": "Electric performance redefined. The Audi e-tron GT combines stunning aesthetics with instant torque, cutting-edge technology, and sustainable luxury.",
+            "image": "cars/audi-etron-gt.png"
+        }
+    ]
+}

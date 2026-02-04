@@ -1,0 +1,114 @@
+.controls-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-10);
+    justify-content: space-between;
+}
+
+.filters-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    position: relative;
+}
+
+.filter-select {
+    height: 44px;
+    padding: 0 var(--space-8) 0 var(--space-4);
+    border: 1px solid var(--border-dim);
+    border-radius: 12px;
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    background: var(--bg-app);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color 0.15s ease;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    min-width: 150px;
+}
+
+.filter-select:focus {
+    border-color: var(--border-mute);
+}
+
+.filter-select:hover {
+    border-color: var(--text-tertiary);
+}
+
+.reset-btn {
+    height: 44px;
+    padding: 0 var(--space-4);
+    border: 1px solid var(--border-dim);
+    border-radius: 12px;
+    font-size: var(--text-sm);
+    font-family: var(--font-body);
+    background: var(--bg-app);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.reset-btn:hover {
+    border-color: var(--text-tertiary);
+    color: var(--text-primary);
+}
+
+.view-toggles {
+    display: flex;
+    border: 1px solid var(--border-dim);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.toggle-btn {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    color: var(--text-tertiary);
+    background: var(--bg-app);
+    font-size: 14px;
+}
+
+.toggle-btn:first-child {
+    border-right: 1px solid var(--border-dim);
+}
+
+.toggle-btn.active {
+    background: var(--bg-muted);
+    color: var(--text-primary);
+}
+
+@media (max-width: 768px) {
+    .controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filters-wrapper {
+        order: 2;
+    }
+
+    .view-toggles {
+        align-self: flex-end;
+        order: 1;
+        margin-bottom: var(--space-3);
+    }
+
+    .filter-select {
+        flex: 1;
+        min-width: 120px;
+    }
+}
